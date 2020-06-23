@@ -11,3 +11,4 @@
 * Give The Path Of The Wordlist
 # YOUTUBE VIDEO
 * https://www.youtube.com/watch?v=5S1NdxuPgnA
+# Current Version v1.1
