@@ -5,6 +5,7 @@ fi
 apt-get update
 apt-get install chromium-browser -y
 apt-get install chromium -y
+apt-get install curl
 apt install python3 -y
 apt install python3-pip -y
 apt-get install xterm
