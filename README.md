@@ -10,7 +10,7 @@
 * Every password in the wordlist should be longer than 6 characters.
 * if you have a password that is shorter than 6 characters, program may not work properly.
 # ![](banner/pic1.png)
-* Instagram doesn't accept shorter than 6 length password characters. Therefore in this case, tool will not work properly.
+* Instagram doesn't accept shorter than 6 character passwords. Therefore in this case, tool will not work properly.
 # USAGE
 * Give The Mail 
 * Give The Path Of The Wordlist
